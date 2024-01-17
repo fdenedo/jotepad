@@ -12,8 +12,7 @@ public class GUI {
     protected JFrame window;
     protected JTextArea textArea;
     private JMenu menuFile, menuEdit, menuFormat;
-    private JMenuItem editUndo, editRedo;
-    private JMenuItem formatWordWrap, formatFont, formatFontSize;
+    private JMenu formatFont, formatFontSize;
 
     FileHandler file = new FileHandler(this);
 
@@ -24,8 +23,12 @@ public class GUI {
     public GUI() {
         createWindow();
         createTextArea();
+
+        // GUI Controls
         createMenuBar();
         createFileMenu();
+        createEditMenu();
+        createFormatMenu();
 
         window.setVisible(true);
     }
@@ -92,10 +95,20 @@ public class GUI {
     }
 
     private void createEditMenu() {
+        JMenuItem editUndo = new JMenuItem("Undo");
+        editUndo.addActionListener(e -> {});
 
+        JMenuItem editRedo = new JMenuItem("Redo");
+        editUndo.addActionListener(e -> {});
+
+        menuEdit.add(editUndo);
+        menuEdit.add(editRedo);
     }
 
     private void createFormatMenu() {
+        JMenuItem formatWordWrap = new JMenuItem("Word Wrap");
+        formatWordWrap.addActionListener(e -> {});
 
+        menuFormat.add(formatWordWrap);
     }
 }
