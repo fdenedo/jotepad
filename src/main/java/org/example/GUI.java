@@ -13,8 +13,12 @@ public class GUI {
     protected JFrame window;
     protected JTextArea textArea;
     private JMenu menuFile, menuEdit, menuFormat;
+    protected JMenuItem formatWordWrap; // Need access to this to change its text
+
+//    private boolean isWordWrapOn = false;
 
     FileHandler file = new FileHandler(this);
+    FormatHandler formatHandler = new FormatHandler(this);
 
     public static void main(String[] args) {
         new GUI();
@@ -106,8 +110,8 @@ public class GUI {
     }
 
     private void createFormatMenu() {
-        JMenuItem formatWordWrap = new JMenuItem("Word Wrap: Off");
-        formatWordWrap.addActionListener(e -> {});
+        formatWordWrap = new JMenuItem("Word Wrap: Off");
+        formatWordWrap.addActionListener(e -> formatHandler.toggleWordWrap());
 
         JMenu formatFontMenu = new JMenu("Font");
 
