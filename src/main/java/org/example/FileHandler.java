@@ -10,6 +10,7 @@ public class FileHandler {
     GUI gui;
     String fileName;
     String fileAddress;
+    String currentFileName;
 
     public FileHandler(GUI gui) {
         this.gui = gui;
@@ -23,12 +24,7 @@ public class FileHandler {
     public void openFile() {
         FileDialog fileDialog = new FileDialog(gui.window, "Open", FileDialog.LOAD);
         fileDialog.setVisible(true);
-
-        if(fileDialog.getFile() == null) return;
-
-        fileName = fileDialog.getFile();
-        fileAddress = fileDialog.getDirectory();
-        gui.window.setTitle(fileName);
+        setCurrentFileNameFromFileDialog(fileDialog);
         gui.textArea.setText("");
 
         try {
@@ -47,7 +43,7 @@ public class FileHandler {
         if(fileName == null || fileName.isEmpty()) {
             saveAs();
         } else {
-            try(FileWriter fw = new FileWriter(fileAddress + fileName)) {
+            try(FileWriter fw = new FileWriter(currentFileName)) {
                 fw.write(gui.textArea.getText());
             }
             catch (Exception e) {
@@ -59,14 +55,9 @@ public class FileHandler {
     public void saveAs() {
         FileDialog fd = new FileDialog(gui.window, "Save", FileDialog.SAVE);
         fd.setVisible(true);
+        setCurrentFileNameFromFileDialog(fd);
 
-        if(fd.getFile() == null) return;
-
-        fileName = fd.getFile();
-        fileAddress = fd.getDirectory();
-        gui.window.setTitle(fileName);
-
-        try(FileWriter fw = new FileWriter(fileAddress + fileName)) {
+        try(FileWriter fw = new FileWriter(currentFileName)) {
             fw.write(gui.textArea.getText());
         }
         catch (Exception e) {
@@ -74,8 +65,12 @@ public class FileHandler {
         }
     }
 
-    private String getCurrentFileNameFromFileDialog(FileDialog fileDialog) {
-        return "";
-    }
+    private void setCurrentFileNameFromFileDialog(FileDialog fileDialog) {
+        if(fileDialog.getFile() == null) return;
 
+        fileName = fileDialog.getFile();
+        fileAddress = fileDialog.getDirectory();
+        currentFileName = fileAddress + fileName;
+        gui.window.setTitle(fileName);
+    }
 }
