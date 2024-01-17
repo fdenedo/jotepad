@@ -12,7 +12,6 @@ public class GUI {
     protected JFrame window;
     protected JTextArea textArea;
     private JMenu menuFile, menuEdit, menuFormat;
-    private JMenu formatFont, formatFontSize;
 
     FileHandler file = new FileHandler(this);
 
@@ -106,9 +105,15 @@ public class GUI {
     }
 
     private void createFormatMenu() {
-        JMenuItem formatWordWrap = new JMenuItem("Word Wrap");
+        JMenuItem formatWordWrap = new JMenuItem("Word Wrap: Off");
         formatWordWrap.addActionListener(e -> {});
 
+        JMenu formatFont = new JMenu("Font");
+
+        JMenu formatFontSize = new JMenu("Font Size");
+
         menuFormat.add(formatWordWrap);
+        menuFormat.add(formatFont);
+        menuFormat.add(formatFontSize);
     }
 }
