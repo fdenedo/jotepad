@@ -1,6 +1,8 @@
 package org.example;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GUI {
 
@@ -8,6 +10,9 @@ public class GUI {
 
     private static final int WINDOW_WIDTH = 800;
     private static final int WINDOW_HEIGHT = 600;
+
+    protected String[] supportedFonts = { "Arial", "Times New Roman", "Comic Sans" };
+    protected int[] supportedFontSizes = { 8, 12, 16, 20, 24 };
 
     protected JFrame window;
     protected JTextArea textArea;
@@ -110,7 +115,23 @@ public class GUI {
 
         JMenu formatFont = new JMenu("Font");
 
+        for (String supportedFont : supportedFonts) {
+            JMenuItem font = new JMenuItem(supportedFont);
+            font.addActionListener(e -> {
+                System.out.println("Supported Font: " + supportedFont);
+            });
+            formatFont.add(font);
+        }
+
         JMenu formatFontSize = new JMenu("Font Size");
+
+        for (int supportedFontSize : supportedFontSizes) {
+            JMenuItem fontSize = new JMenuItem(Integer.toString(supportedFontSize));
+            fontSize.addActionListener(e -> {
+                System.out.println("Supported Font Size: " + supportedFontSize);
+            });
+            formatFontSize.add(fontSize);
+        }
 
         menuFormat.add(formatWordWrap);
         menuFormat.add(formatFont);
