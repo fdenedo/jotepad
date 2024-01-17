@@ -4,13 +4,11 @@ import javax.swing.*;
 
 public class GUI {
 
-    // Note that the layout of this class allows us to compose the GUI using the defined units
-
     private static final int WINDOW_WIDTH = 800;
     private static final int WINDOW_HEIGHT = 600;
 
-    protected String[] supportedFonts = { "Arial", "Times New Roman", "Comic Sans" };
-    protected int[] supportedFontSizes = { 8, 12, 16, 20, 24 };
+    private static final String[] SUPPORTED_FONTS = { "Arial", "Times New Roman", "Comic Sans" };
+    private static final int[] SUPPORTED_FONT_SIZES = { 8, 12, 16, 20, 24 };
 
     protected JFrame window;
     protected JTextArea textArea;
@@ -113,7 +111,7 @@ public class GUI {
 
         JMenu formatFontMenu = new JMenu("Font");
 
-        for (String supportedFont : supportedFonts) {
+        for (String supportedFont : SUPPORTED_FONTS) {
             JMenuItem font = new JMenuItem(supportedFont);
             font.addActionListener(e -> System.out.println("Supported Font: " + supportedFont));
             formatFontMenu.add(font);
@@ -121,7 +119,7 @@ public class GUI {
 
         JMenu formatFontSizeMenu = new JMenu("Font Size");
 
-        for (int supportedFontSize : supportedFontSizes) {
+        for (int supportedFontSize : SUPPORTED_FONT_SIZES) {
             JMenuItem fontSize = new JMenuItem(Integer.toString(supportedFontSize));
             fontSize.addActionListener(e -> System.out.println("Supported Font Size: " + supportedFontSize));
             formatFontSizeMenu.add(fontSize);
