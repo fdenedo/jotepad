@@ -14,6 +14,9 @@ public class FileHandler {
 
     public FileHandler(GUI gui) {
         this.gui = gui;
+        this.fileName = null;
+        this.fileAddress = null;
+        this.currentFileName = null;
     }
 
     public void newFile() {
