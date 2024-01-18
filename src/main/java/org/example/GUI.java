@@ -1,6 +1,7 @@
 package org.example;
 
 import javax.swing.*;
+import javax.swing.undo.UndoManager;
 
 public class GUI {
 
@@ -14,6 +15,9 @@ public class GUI {
 
     FileHandler file = new FileHandler(this);
     FormatHandler formatHandler = new FormatHandler(this);
+    EditHandler editHandler = new EditHandler(this);
+
+    UndoManager um = new UndoManager();
 
     public static void main(String[] args) {
         new GUI();
@@ -46,6 +50,9 @@ public class GUI {
     // works
     private void createTextArea() {
         textArea = new JTextArea();
+
+        textArea.getDocument().addUndoableEditListener(e -> um.addEdit(e.getEdit()));
+
         // Scroll Pane acts as a wrapper around components (usually those that are too large to be rendered in the
         // window
         JScrollPane scrollPane = new JScrollPane(
@@ -95,10 +102,10 @@ public class GUI {
 
     private void createEditMenu() {
         JMenuItem editUndo = new JMenuItem("Undo");
-        editUndo.addActionListener(e -> {});
+        editUndo.addActionListener(e -> editHandler.undo());
 
         JMenuItem editRedo = new JMenuItem("Redo");
-        editUndo.addActionListener(e -> {});
+        editRedo.addActionListener(e -> editHandler.redo());
 
         menuEdit.add(editUndo);
         menuEdit.add(editRedo);
