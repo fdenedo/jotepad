@@ -11,7 +11,7 @@ public class GUI {
     protected JFrame window;
     protected JTextArea textArea;
     private JMenu menuFile, menuEdit, menuFormat;
-    protected JMenuItem formatWordWrap; // Need access to this to change its text
+    protected JMenuItem formatWordWrap;
 
     FileHandler file = new FileHandler(this);
     FormatHandler formatHandler = new FormatHandler(this);
