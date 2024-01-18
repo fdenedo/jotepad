@@ -8,10 +8,10 @@ public class FormatHandler {
     SupportedFontSizes currentFontSize;
 
     public enum SupportedFonts {
-        ARIAL("Arial"),
-        TIMES_NEW_ROMAN("Times New Roman"),
-        COMIC_SANS("Comic Sans MS"),
-        COURIER_NEW("Courier New");
+        ARIAL           ("Arial"),
+        TIMES_NEW_ROMAN ("Times New Roman"),
+        COMIC_SANS      ("Comic Sans MS"),
+        COURIER_NEW     ("Courier New");
 
         final String name;
         SupportedFonts(String name) {
@@ -20,11 +20,11 @@ public class FormatHandler {
     }
 
     public enum SupportedFontSizes {
-        _8(8),
-        _12(12),
-        _16(16),
-        _20(20),
-        _24(24);
+        _8  (8),
+        _12 (12),
+        _16 (16),
+        _20 (20),
+        _24 (24);
 
         final int size;
 
