@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -38,7 +39,7 @@ public class FileHandler {
             }
             br.close();
         } catch (Exception e) {
-            System.out.println("FILE COULD NOT BE READ");
+            showErrorDialog("Error reading file", "An error occurred while trying to read the file.");
         }
     }
 
@@ -50,7 +51,7 @@ public class FileHandler {
                 fw.write(gui.textArea.getText());
             }
             catch (Exception e) {
-                System.out.println("SOMETHING IS WRONG");
+                showErrorDialog("Error saving file", "An error occurred while trying to save the file.");
             }
         }
     }
@@ -64,7 +65,7 @@ public class FileHandler {
             fw.write(gui.textArea.getText());
         }
         catch (Exception e) {
-            System.out.println("SOMETHING IS WRONG");
+            showErrorDialog("Error saving file", "An error occurred while trying to save the file.");
         }
     }
 
@@ -75,5 +76,9 @@ public class FileHandler {
         fileAddress = fileDialog.getDirectory();
         currentFileName = fileAddress + fileName;
         gui.window.setTitle(fileName);
+    }
+
+    private void showErrorDialog(String title, String message) {
+        JOptionPane.showMessageDialog(gui.window, message, title, JOptionPane.ERROR_MESSAGE);
     }
 }
