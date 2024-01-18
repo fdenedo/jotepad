@@ -10,7 +10,8 @@ public class FormatHandler {
     public enum SupportedFonts {
         ARIAL("Arial"),
         TIMES_NEW_ROMAN("Times New Roman"),
-        COMIC_SANS("Comic Sans MS");
+        COMIC_SANS("Comic Sans MS"),
+        COURIER_NEW("Courier New");
 
         final String name;
         SupportedFonts(String name) {
