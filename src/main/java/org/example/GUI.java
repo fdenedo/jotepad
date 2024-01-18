@@ -7,15 +7,10 @@ public class GUI {
     private static final int WINDOW_WIDTH = 800;
     private static final int WINDOW_HEIGHT = 600;
 
-    private static final String[] SUPPORTED_FONTS = { "Arial", "Times New Roman", "Comic Sans" };
-    private static final int[] SUPPORTED_FONT_SIZES = { 8, 12, 16, 20, 24 };
-
     protected JFrame window;
     protected JTextArea textArea;
     private JMenu menuFile, menuEdit, menuFormat;
     protected JMenuItem formatWordWrap; // Need access to this to change its text
-
-//    private boolean isWordWrapOn = false;
 
     FileHandler file = new FileHandler(this);
     FormatHandler formatHandler = new FormatHandler(this);
@@ -115,18 +110,18 @@ public class GUI {
 
         JMenu formatFontMenu = new JMenu("Font");
 
-        for (String supportedFont : SUPPORTED_FONTS) {
-            JMenuItem font = new JMenuItem(supportedFont);
-            font.addActionListener(e -> System.out.println("Supported Font: " + supportedFont));
-            formatFontMenu.add(font);
+        for (FormatHandler.SupportedFonts font : FormatHandler.SupportedFonts.values()) {
+            JMenuItem fontMenuItem = new JMenuItem(font.name);
+            fontMenuItem.addActionListener(e -> formatHandler.setFont(font));
+            formatFontMenu.add(fontMenuItem);
         }
 
         JMenu formatFontSizeMenu = new JMenu("Font Size");
 
-        for (int supportedFontSize : SUPPORTED_FONT_SIZES) {
-            JMenuItem fontSize = new JMenuItem(Integer.toString(supportedFontSize));
-            fontSize.addActionListener(e -> System.out.println("Supported Font Size: " + supportedFontSize));
-            formatFontSizeMenu.add(fontSize);
+        for (FormatHandler.SupportedFontSizes fontSize : FormatHandler.SupportedFontSizes.values()) {
+            JMenuItem sizeMenuItem = new JMenuItem(Integer.toString(fontSize.size));
+            sizeMenuItem.addActionListener(e -> formatHandler.setFontSize(fontSize));
+            formatFontSizeMenu.add(sizeMenuItem);
         }
 
         menuFormat.add(formatWordWrap);
