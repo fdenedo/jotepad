@@ -14,7 +14,7 @@ Right now, this is a simple, barebones Notepad clone, built using Java Swing com
 
 ## Next Steps
 * Create a custom text area.
-Exploring how to make a text area from scratch will be a really good project, but it will allow me to create my own Document interface, which I can then usee to create multiple representations for the text data.
+Exploring how to make a text area from scratch will allow me to create my own Document interface, which I can then usee to create multiple representations for the text data.
 
 * Add tests
 * Implement a simple array representation with insertion and deletion (much like `String` now), perhaps do the same using a `StringBuilder`
