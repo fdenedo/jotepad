@@ -1,6 +1,8 @@
 # JotePad
 This is a Notepad clone I am working on in Java. Well, at its most basic it is, but really this project is going to be an exploration of the kind of algorithms and data structures text editors employ to make editing large documents easy and efficient.
 
+<img width="412" alt="Screenshot 2024-01-20 152036" src="https://github.com/fdenedo/jotepad/assets/24829887/771b31c5-1f05-40b5-b25e-0cf121afc99b">
+
 ## Requirements
 **Java 17** or Higher
 
