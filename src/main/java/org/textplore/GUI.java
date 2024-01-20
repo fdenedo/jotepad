@@ -1,4 +1,4 @@
-package org.example;
+package org.textplore;
 
 import javax.swing.*;
 import javax.swing.undo.UndoManager;
