@@ -27,7 +27,6 @@ public class FormatHandler {
         _24 (24);
 
         final int size;
-
         SupportedFontSizes(int size) {
             this.size = size;
         }

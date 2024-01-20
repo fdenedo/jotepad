@@ -39,22 +39,14 @@ public class GUI {
     private void createWindow() {
         window = new JFrame("Jotepad");
         window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-        // You need this to make the window close when the X button is clicked
-        // I thought it was weird why this wasn't the default behaviour, but it's not weird at all - a JFrame doesn't
-        // necessarily represent the highest level wrapper of an app. In fact, there is only one case in an application
-        // where it should be set to EXIT_ON_CLOSE
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    // In the future I could try to implement my own text area - this is a good first pass to make sure the application
-    // works
     private void createTextArea() {
         textArea = new JTextArea();
 
         textArea.getDocument().addUndoableEditListener(e -> um.addEdit(e.getEdit()));
 
-        // Scroll Pane acts as a wrapper around components (usually those that are too large to be rendered in the
-        // window
         JScrollPane scrollPane = new JScrollPane(
                 textArea,
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
