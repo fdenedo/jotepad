@@ -7,7 +7,7 @@ This is a Notepad clone I am working on in Java. Well, at its most basic it is, 
 **Java 17** or Higher
 
 ## Installation
-I haven't built an executable for this project as of yet, and I don't intend to as the important thing is the exploration of text data structures. Having said that, if you wish to browse the source code or rin the project for yourself, feel free to clone it and run the code from the `GUI` class.
+I haven't built an executable for this project, and I don't intend to as the important thing is the exploration of text data structures. Having said that, if you wish to browse the source code or rin the project for yourself, feel free to clone it and run the code from the `GUI` class.
 
 ## Current Implementaion
 Right now, this is a simple, barebones Notepad clone, built using Java Swing components. Java Swing makes this part of the project really easy, as it supplies a `JTextComponent` class, with essentially all that's needed to style and configure a large text area for editing documents. Speaking of Documents, the `JTextComponent` uses the `Document` class, which is the first part of the exploration.
