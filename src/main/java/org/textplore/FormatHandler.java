@@ -39,9 +39,9 @@ public class FormatHandler {
     }
 
     public void toggleWordWrap() {
-        boolean isLineWrapOn = gui.textArea.getLineWrap();
-        gui.textArea.setLineWrap(!isLineWrapOn);
-        gui.formatWordWrap.setText(String.format("Word Wrap: %s", !isLineWrapOn ? "On" : "Off"));
+        boolean toggledLineWrap = !gui.textArea.getLineWrap();
+        gui.textArea.setLineWrap(toggledLineWrap);
+        gui.formatWordWrap.setText(String.format("Word Wrap: %s", toggledLineWrap ? "On" : "Off"));
     }
 
     public void setFont(SupportedFonts supportedFont) {
